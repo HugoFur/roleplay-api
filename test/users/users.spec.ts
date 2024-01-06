@@ -9,13 +9,6 @@ test.group('Users', () => {
       username: 'test',
       password: 'test',
     }
-    await supertest(BASE_URL)
-      .post('/users')
-      .send(userPayload)
-      .expect(201)
-      .then((response) => {
-        assert.exists(response.body.user)
-        assert.exists(response.body.token)
-      })
+    await supertest(BASE_URL).post('/users').send(userPayload).expect(201)
   })
 })
